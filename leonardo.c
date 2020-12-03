@@ -65,6 +65,9 @@ int notaInt(char a){
 }
 
 char notaChar(int n){
+	if (nMaior(n, 12) == n){
+		n = n - 12;
+	}		
 	switch (n) {
 		case 0:
 			return 'A';
@@ -102,42 +105,6 @@ char notaChar(int n){
 		case 11:
 			return 'g';
 			break;
-		case 12:
-			return 'A';
-			break;
-		case 13:
-			return 'a';
-			break;
-		case 14:
-			return 'B';
-			break;
-		case 15:
-			return 'C';
-			break;
-		case 16:
-			return 'c';
-			break;
-		case 17:
-			return 'D';
-			break;
-		case 18:
-			return 'd';
-			break;
-		case 19:
-			return 'E';
-			break;
-		case 20:
-			return 'F';
-			break;
-		case 21:
-			return 'f';
-			break;
-		case 22:
-			return 'G';
-			break;
-		case 23:
-			return 'g';
-			break;
 	}
 }
 
@@ -160,32 +127,20 @@ void distanciaTonal (int *ptr, char a, char b){
 }
 
 void criarHarmonicoInt(int tomFinal, int * harmoniaInt){
-	int i;
-	for(i=0;i<=6;i++){
-		switch(i){
-			case 0:
-				*(harmoniaInt + i) = tomFinal;
-				break;
-			case 1:
-				*(harmoniaInt + i) = tomFinal + 2;
-				break;
-			case 2:
-				*(harmoniaInt + i) = tomFinal + 4;
-				break;
-			case 3:
-				*(harmoniaInt + i) = tomFinal + 5;
-				break;
-			case 4:
-				*(harmoniaInt + i) = tomFinal + 7;
-				break;
-			case 5:
-				*(harmoniaInt + i) = tomFinal + 9;
-				break;
-			case 6:
-				*(harmoniaInt + i) = tomFinal +11;
-				break;
-		}
-	}
+	
+	*(harmoniaInt + 0) = tomFinal;
+
+	*(harmoniaInt + 1) = tomFinal + 2;
+
+	*(harmoniaInt + 2) = tomFinal + 4;
+	
+	*(harmoniaInt + 3) = tomFinal + 5;
+
+	*(harmoniaInt + 4) = tomFinal + 7;
+
+	*(harmoniaInt + 5) = tomFinal + 9;
+	
+	*(harmoniaInt + 6) = tomFinal + 11;
 }
 
 void campoHarmonico(int *ptr){
@@ -239,5 +194,59 @@ void campoHarmonico(int *ptr){
 				printf("m7(b5) |");
 				break;
 		}	
+	}
+}
+
+void campoHarmonicoRec(int *ptr, int ctrl){
+	char aux;
+	if(ctrl>6){
+		exit(0);
+	}else{
+			
+		aux = notaChar(*(ptr + ctrl));
+		
+		switch (aux){
+			case 'a':
+				printf("|  A#");
+				break;
+			case 'c':
+				printf("|  C#");
+				break;
+			case 'd':
+				printf("|  D#");
+				break;
+			case 'f':
+				printf("|  F#");
+				break;
+			case 'g':
+				printf("|  G#");
+				break;
+			default:
+				printf("|  %c", aux);
+		}
+		switch(ctrl){
+			case 0:
+				printf("  |");
+				break;
+			case 1:
+				printf("m  |");
+				break;
+			case 2:
+				printf("m  |");
+				break;
+			case 3:
+				printf("  |");
+				break;
+			case 4:
+				printf("  |");
+				break;
+			case 5:
+				printf("m  |");
+				break;
+			case 6:
+				printf("m7(b5) |");
+				break;
+		}	
+		return campoHarmonicoRec(ptr, ctrl+1);
 	}
 }
