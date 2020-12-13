@@ -126,7 +126,7 @@ void distanciaTonal (int *ptr, char a, char b){
 	}
 }
 
-void criarHarmonicoInt(int tomFinal, int * harmoniaInt){
+void criarHarmonicoInt(int tomFinal, int *harmoniaInt){
 	
 	*(harmoniaInt + 0) = tomFinal;
 
