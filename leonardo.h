@@ -7,7 +7,7 @@ int notaInt(char a); //Converte uma nota de char para int
 char notaChar(int n); //Converte uma nota de int para char
 void distanciaTonal (int *ptr, char a, char b); //Retorna o tom atual e o tom desejado em int, alem de retornar a distancia de semitons entre elas
 void campoHarmonico (int *ptr);
-void criarHarmonicoInt(int tomFinal, int * harmoniaInt);
+void criarHarmonicoInt(int tomFinal, int *harmoniaInt);
 void campoHarmonicoRec(int *ptr, int ctrl);
 
 #endif
