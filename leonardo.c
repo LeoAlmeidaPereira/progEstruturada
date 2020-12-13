@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "leonardo.h"
 
 void printArray(int *arr, int size){
@@ -143,7 +144,7 @@ void criarHarmonicoInt(int tomFinal, int *harmoniaInt){
 	*(harmoniaInt + 6) = tomFinal + 11;
 }
 
-void campoHarmonico(int *ptr){
+void campoHarmonico(int *ptr, char *ptr_menor){
 	
 	int i;
 	char aux;
@@ -195,12 +196,13 @@ void campoHarmonico(int *ptr){
 				break;
 		}	
 	}
+	mostraRelativoMenor(ptr_menor);
 }
 
 void campoHarmonicoRec(int *ptr, int ctrl){
 	char aux;
 	if(ctrl>6){
-		exit(0);
+		return(0);
 	}else{
 			
 		aux = notaChar(*(ptr + ctrl));
@@ -248,5 +250,115 @@ void campoHarmonicoRec(int *ptr, int ctrl){
 				break;
 		}	
 		return campoHarmonicoRec(ptr, ctrl+1);
+	}
+}
+
+void criaRelativoMenor(int *ptr_maior, char *ptr_menor){
+	*(ptr_menor+0) = notaChar(*(ptr_maior+5));
+	*(ptr_menor+1) = notaChar(*(ptr_maior+6));
+	*(ptr_menor+2) = notaChar(*(ptr_maior+0));
+	*(ptr_menor+3) = notaChar(*(ptr_maior+1));
+	*(ptr_menor+4) = notaChar(*(ptr_maior+2));
+	*(ptr_menor+5) = notaChar(*(ptr_maior+3));
+	*(ptr_menor+6) = notaChar(*(ptr_maior+4));
+}
+
+void mostraRelativoMenor(char *ptr_menor){
+	printf("\n\n");
+	printf("Campo harmonico realtivo menor do campo harmonico final: \n");
+	int i;
+	for(i=0; i<=6;i++){
+		switch (*(ptr_menor+i)){
+			case 'a':
+				printf("|  A#");
+				break;
+			case 'c':
+				printf("|  C#");
+				break;
+			case 'd':
+				printf("|  D#");
+				break;
+			case 'f':
+				printf("|  F#");
+				break;
+			case 'g':
+				printf("|  G#");
+				break;
+			default:
+				printf("|  %c", *(ptr_menor+i));
+		}
+		switch(i){
+			case 0:
+				printf("m  |");
+				break;
+			case 1:
+				printf("m7(b5)  |");
+				break;
+			case 2:
+				printf("  |");
+				break;
+			case 3:
+				printf("m  |");
+				break;
+			case 4:
+				printf("m  |");
+				break;
+			case 5:
+				printf("  |");
+				break;
+			case 6:
+				printf(" |");
+				break;
+		}	
+	}
+}
+
+void mostraRelativoMenorRec(char *ptr_menor, int ctrl){
+	if(ctrl>6){
+		exit(0);
+	}else{
+		switch (*(ptr_menor+ctrl)){
+			case 'a':
+				printf("|  A#");
+				break;
+			case 'c':
+				printf("|  C#");
+				break;
+			case 'd':
+				printf("|  D#");
+				break;
+			case 'f':
+				printf("|  F#");
+				break;
+			case 'g':
+				printf("|  G#");
+				break;
+			default:
+				printf("|  %c", *(ptr_menor+ctrl));
+		}
+		switch(ctrl){
+			case 0:
+				printf("m  |");
+				break;
+			case 1:
+				printf("m7(b5)  |");
+				break;
+			case 2:
+				printf("  |");
+				break;
+			case 3:
+				printf("m  |");
+				break;
+			case 4:
+				printf("m  |");
+				break;
+			case 5:
+				printf("  |");
+				break;
+			case 6:
+				printf(" |");
+				break;
+		}	
+		return mostraRelativoMenorRec(ptr_menor, ctrl+1);
 	}
 }
