@@ -15,7 +15,7 @@ int main(){
 	printf("TOM IDEAL DA HARMONIA:\n");
 	scanf(" %c", &tomFinal);
 	
-	ptr_semitom = semitom;//Guardar o tomOriginal, tomAtual e a distância deles, tudo em Int
+	//ptr_semitom = semitom;//Guardar o tomOriginal, tomAtual e a distância deles, tudo em Int
 	ptr_Harmonia = harmoniaFinal;
 	ptr_harmoniaInt = harmoniaInt;
 	ptr_harmoniaMenorRelativa = harmoniaMenorRelativa;
