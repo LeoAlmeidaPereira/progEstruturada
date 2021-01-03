@@ -151,21 +151,30 @@ int *geraSemitom (char a, char b){
 	return vet;
 }
 
-void criarHarmonicoInt(int tomFinal, int *harmoniaInt){
+int *criarHarmonicoInt(int tomFinal){
 	
-	*(harmoniaInt + 0) = tomFinal;
-
-	*(harmoniaInt + 1) = tomFinal + 2;
-
-	*(harmoniaInt + 2) = tomFinal + 4;
+	int *vet;
+	vet = (int *)malloc( 7 * sizeof(int) );
+	if(vet == NULL){
+	printf("ERRO\n");
+	return NULL;
+	}
 	
-	*(harmoniaInt + 3) = tomFinal + 5;
+	*(vet + 0) = tomFinal;
 
-	*(harmoniaInt + 4) = tomFinal + 7;
+	*(vet + 1) = tomFinal + 2;
 
-	*(harmoniaInt + 5) = tomFinal + 9;
+	*(vet + 2) = tomFinal + 4;
 	
-	*(harmoniaInt + 6) = tomFinal + 11;
+	*(vet + 3) = tomFinal + 5;
+
+	*(vet + 4) = tomFinal + 7;
+
+	*(vet + 5) = tomFinal + 9;
+	
+	*(vet + 6) = tomFinal + 11;
+	
+	return vet;
 }
 
 void campoHarmonico(int *ptr, char *ptr_menor){
@@ -250,14 +259,16 @@ void campoHarmonico(int *ptr, char *ptr_menor){
 void campoHarmonicoRec(int *ptr, int ctrl){
 	char aux;
 	
-	FILE *arq;
-
-	arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
-	if (arq == NULL)
-	{
-	   printf("Problemas na CRIACAO do arquivo\n");
-	   return;
-	}
+	
+		FILE *arq;
+	
+		arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
+		if (arq == NULL)
+		{
+		   printf("Problemas na CRIACAO do arquivo\n");
+		   return;
+		}	
+	
 	
 	if(ctrl>6){
 		fclose(arq);
@@ -325,14 +336,24 @@ void campoHarmonicoRec(int *ptr, int ctrl){
 	}
 }
 
-void criaRelativoMenor(int *ptr_maior, char *ptr_menor){
-	*(ptr_menor+0) = notaChar(*(ptr_maior+5));
-	*(ptr_menor+1) = notaChar(*(ptr_maior+6));
-	*(ptr_menor+2) = notaChar(*(ptr_maior+0));
-	*(ptr_menor+3) = notaChar(*(ptr_maior+1));
-	*(ptr_menor+4) = notaChar(*(ptr_maior+2));
-	*(ptr_menor+5) = notaChar(*(ptr_maior+3));
-	*(ptr_menor+6) = notaChar(*(ptr_maior+4));
+char * criaRelativoMenor(int *ptr_maior){
+	
+	char *vet;
+	vet = (char *)malloc( 7 * sizeof(char) );
+	if(vet == NULL){
+	printf("ERRO\n");
+	return NULL;
+	}
+	
+	*(vet+0) = notaChar(*(ptr_maior+5));
+	*(vet+1) = notaChar(*(ptr_maior+6));
+	*(vet+2) = notaChar(*(ptr_maior+0));
+	*(vet+3) = notaChar(*(ptr_maior+1));
+	*(vet+4) = notaChar(*(ptr_maior+2));
+	*(vet+5) = notaChar(*(ptr_maior+3));
+	*(vet+6) = notaChar(*(ptr_maior+4));
+	
+	return vet;
 }
 
 void mostraRelativoMenor(char *ptr_menor){
