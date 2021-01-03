@@ -8,9 +8,9 @@ char notaChar(int n); //Converte uma nota de int para char
 void distanciaTonal (int *ptr, char a, char b); //Retorna o tom atual e o tom desejado em int, alem de retornar a distancia de semitons entre elas
 int *geraSemitom (char a, char b); //distanciaTonal com alocação
 void campoHarmonico (int *ptr, char *ptr_menor);
-void criarHarmonicoInt(int tomFinal, int *harmoniaInt);
+int *criarHarmonicoInt(int tomFinal);
 void campoHarmonicoRec(int *ptr, int ctrl);
-void criaRelativoMenor(int *ptr_maior, char *ptr_menor);
+char *criaRelativoMenor(int *ptr_maior);
 void mostraRelativoMenor(char *ptr_menor);
 void mostraRelativoMenorRec(char *ptr_menor, int ctrl);
 
