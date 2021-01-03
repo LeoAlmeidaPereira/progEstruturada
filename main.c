@@ -26,9 +26,10 @@ int main(){
 	criarHarmonicoInt(ptr_semitom[1], harmoniaInt);
 	criaRelativoMenor(ptr_harmoniaInt, ptr_harmoniaMenorRelativa);
 	free(ptr_semitom);
-	/*printf("\n");
+	printf("\n");
 	campoHarmonico(ptr_harmoniaInt, ptr_harmoniaMenorRelativa); //Passar vetor semitom e printar o campo harmonico desejado, convertendo de int para char
-	*/
+	
+	printf("\n");
 	
 	campoHarmonicoRec(ptr_harmoniaInt, 0);
 	printf("\n\n");
