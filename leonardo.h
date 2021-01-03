@@ -6,6 +6,7 @@ int nMaior(int n1, int n2); //Compara e retorna o maior numero
 int notaInt(char a); //Converte uma nota de char para int
 char notaChar(int n); //Converte uma nota de int para char
 void distanciaTonal (int *ptr, char a, char b); //Retorna o tom atual e o tom desejado em int, alem de retornar a distancia de semitons entre elas
+int *geraSemitom (char a, char b); //distanciaTonal com alocação
 void campoHarmonico (int *ptr, char *ptr_menor);
 void criarHarmonicoInt(int tomFinal, int *harmoniaInt);
 void campoHarmonicoRec(int *ptr, int ctrl);
