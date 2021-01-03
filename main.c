@@ -29,12 +29,11 @@ int main(){
 	printf("\n");
 	campoHarmonico(ptr_harmoniaInt, ptr_harmoniaMenorRelativa); //Passar vetor semitom e printar o campo harmonico desejado, convertendo de int para char
 	
-	printf("\n");
 	
-	campoHarmonicoRec(ptr_harmoniaInt, 0);
+	/*campoHarmonicoRec(ptr_harmoniaInt, 0);
 	printf("\n\n");
-	printf("Campo harmonico realtivo menor do campo harmonico final: \n");
+	printf("Campo harmonico relativo menor do campo harmonico final: \n");
 	mostraRelativoMenorRec(ptr_harmoniaMenorRelativa, 0);
-	
+	*/
 	return 0;
 }
