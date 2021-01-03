@@ -249,7 +249,18 @@ void campoHarmonico(int *ptr, char *ptr_menor){
 
 void campoHarmonicoRec(int *ptr, int ctrl){
 	char aux;
+	
+	FILE *arq;
+
+	arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
+	if (arq == NULL)
+	{
+	   printf("Problemas na CRIACAO do arquivo\n");
+	   return;
+	}
+	
 	if(ctrl>6){
+		fclose(arq);
 		return;
 	}else{
 			
@@ -258,45 +269,58 @@ void campoHarmonicoRec(int *ptr, int ctrl){
 		switch (aux){
 			case 'a':
 				printf("|  A#");
+				fprintf(arq, "|  A#");
 				break;
 			case 'c':
 				printf("|  C#");
+				fprintf(arq, "|  C#");
 				break;
 			case 'd':
 				printf("|  D#");
+				fprintf(arq, "|  D#");
 				break;
 			case 'f':
 				printf("|  F#");
+				fprintf(arq, "|  F#");
 				break;
 			case 'g':
 				printf("|  G#");
+				fprintf(arq, "|  G#");
 				break;
 			default:
 				printf("|  %c", aux);
+				fprintf(arq, "|  %c", aux);
 		}
 		switch(ctrl){
 			case 0:
 				printf("  |");
+				fprintf(arq, "  |");
 				break;
 			case 1:
 				printf("m  |");
+				fprintf(arq, "m  |");
 				break;
 			case 2:
 				printf("m  |");
+				fprintf(arq, "m  |");
 				break;
 			case 3:
 				printf("  |");
+				fprintf(arq, "  |");
 				break;
 			case 4:
 				printf("  |");
+				fprintf(arq, "  |");
 				break;
 			case 5:
 				printf("m  |");
+				fprintf(arq, "m  |");
 				break;
 			case 6:
 				printf("m7(b5) |");
+				fprintf(arq, "m7(b5) |");
 				break;
-		}	
+		}
 		return campoHarmonicoRec(ptr, ctrl+1);
 	}
 }
@@ -313,7 +337,7 @@ void criaRelativoMenor(int *ptr_maior, char *ptr_menor){
 
 void mostraRelativoMenor(char *ptr_menor){
 	printf("\n\n");
-	printf("Campo harmonico realtivo menor do campo harmonico final: \n");
+	printf("Campo harmonico relativo menor do campo harmonico final: \n");
 	int i;
 	for(i=0; i<=6;i++){
 		switch (*(ptr_menor+i)){
