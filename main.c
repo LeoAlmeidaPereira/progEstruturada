@@ -19,19 +19,20 @@ int main(){
 	ptr_harmoniaInt = harmoniaInt;
 	ptr_harmoniaMenorRelativa = harmoniaMenorRelativa;
 	
-	distanciaTonal(ptr_semitom, tomOriginal, tomFinal);//Converter os tons de Char pra Int
+	ptr_semitom = geraSemitom(tomOriginal, tomFinal);	
+	//distanciaTonal(ptr_semitom, tomOriginal, tomFinal);//Converter os tons de Char pra Int
 	
-	criarHarmonicoInt(semitom[1], harmoniaInt);
+	criarHarmonicoInt(ptr_semitom[1], harmoniaInt);
 	criaRelativoMenor(ptr_harmoniaInt, ptr_harmoniaMenorRelativa);
-	
+	free(ptr_semitom);
 	/*printf("\n");
 	campoHarmonico(ptr_harmoniaInt, ptr_harmoniaMenorRelativa); //Passar vetor semitom e printar o campo harmonico desejado, convertendo de int para char
 	*/
+	
 	campoHarmonicoRec(ptr_harmoniaInt, 0);
 	printf("\n\n");
 	printf("Campo harmonico realtivo menor do campo harmonico final: \n");
 	mostraRelativoMenorRec(ptr_harmoniaMenorRelativa, 0);
-	
 	
 	return 0;
 }
