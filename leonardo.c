@@ -127,6 +127,30 @@ void distanciaTonal (int *ptr, char a, char b){
 	}
 }
 
+int *geraSemitom (char a, char b){
+	
+	int tomInicial, tomFinal, *vet;
+	vet = (int *)malloc( 3 * sizeof(int) );
+	if(vet == NULL){
+	printf("ERRO\n");
+	return NULL;
+	}
+	
+	tomInicial = notaInt(a);
+	tomFinal = notaInt(b);
+
+	if(nMaior(tomInicial, tomFinal) == tomInicial){
+		*vet = tomInicial;
+		*(vet+1) = tomFinal;
+		*(vet+2) = tomInicial - tomFinal;
+	}else{
+		*vet = tomInicial;
+		*(vet+1) = tomFinal;
+		*(vet+2) = tomFinal - tomInicial;
+	}
+	return vet;
+}
+
 void criarHarmonicoInt(int tomFinal, int *harmoniaInt){
 	
 	*(harmoniaInt + 0) = tomFinal;
@@ -149,6 +173,16 @@ void campoHarmonico(int *ptr, char *ptr_menor){
 	int i;
 	char aux;
 	
+	
+	FILE *arq;
+
+	arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
+	if (arq == NULL)
+	{
+	   printf("Problemas na CRIACAO do arquivo\n");
+	   return;
+	}
+	
 	for(i=0; i<=6;i++){
 		
 		aux = notaChar(*(ptr + i));
@@ -156,53 +190,67 @@ void campoHarmonico(int *ptr, char *ptr_menor){
 		switch (aux){
 			case 'a':
 				printf("|  A#");
+				fprintf(arq, "|  A#");
 				break;
 			case 'c':
 				printf("|  C#");
+				fprintf(arq, "|  C#");
 				break;
 			case 'd':
 				printf("|  D#");
+				fprintf(arq, "|  D#");
 				break;
 			case 'f':
 				printf("|  F#");
+				fprintf(arq, "|  F#");
 				break;
 			case 'g':
 				printf("|  G#");
+				fprintf(arq, "|  G#");
 				break;
 			default:
 				printf("|  %c", aux);
+				fprintf(arq, "|  %c", aux);
 		}
 		switch(i){
 			case 0:
 				printf("  |");
+				fprintf(arq, "  |");
 				break;
 			case 1:
 				printf("m  |");
+				fprintf(arq, "m  |");
 				break;
 			case 2:
 				printf("m  |");
+				fprintf(arq, "m  |");
 				break;
 			case 3:
 				printf("  |");
+				fprintf(arq, "  |");
 				break;
 			case 4:
 				printf("  |");
+				fprintf(arq, "  |");
 				break;
 			case 5:
 				printf("m  |");
+				fprintf(arq, "m  |");
 				break;
 			case 6:
 				printf("m7(b5) |");
+				fprintf(arq, "m7(b5) |");
 				break;
 		}	
 	}
+	fclose(arq);
 	mostraRelativoMenor(ptr_menor);
 }
 
 void campoHarmonicoRec(int *ptr, int ctrl){
 	char aux;
 	if(ctrl>6){
-		return(0);
+		return;
 	}else{
 			
 		aux = notaChar(*(ptr + ctrl));
@@ -315,7 +363,7 @@ void mostraRelativoMenor(char *ptr_menor){
 
 void mostraRelativoMenorRec(char *ptr_menor, int ctrl){
 	if(ctrl>6){
-		exit(0);
+		return;
 	}else{
 		switch (*(ptr_menor+ctrl)){
 			case 'a':
