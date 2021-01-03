@@ -6,7 +6,8 @@
 int main(){
 	
 	char harmoniaFinal[7], *ptr_Harmonia, tomOriginal, tomFinal, harmoniaMenorRelativa[8], *ptr_harmoniaMenorRelativa;
-	int semitom[3], *ptr_semitom, harmoniaInt[7], *ptr_harmoniaInt, i;
+	int *ptr_semitom, harmoniaInt[7], *ptr_harmoniaInt, i;
+	//int semitom[3];
 	
 	printf("INSIRA OS TONS USANDO A SIMBOLOGIA DE LETRAS E ASSUMA QUE OS TONS SUSTENIDOS SERAO SUBSTITUIDOS PELA LETRA MINUSCULA DO TOM NATURAL QUE O ANTECEDE	EX: F# = f\n\n");
 	printf("TOM ORIGINAL DA HARMONIA:\n");
