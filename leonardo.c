@@ -260,14 +260,14 @@ void campoHarmonicoRec(int *ptr, int ctrl){
 	char aux;
 	
 	
-		FILE *arq;
+	FILE *arq;
 	
-		arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
-		if (arq == NULL)
-		{
-		   printf("Problemas na CRIACAO do arquivo\n");
-		   return;
-		}	
+	arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "a");
+	if (arq == NULL)
+	{
+	   printf("Problemas na CRIACAO do arquivo\n");
+	   return;
+	}	
 	
 	
 	if(ctrl>6){
