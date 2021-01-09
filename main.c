@@ -40,7 +40,7 @@ int main(){
 	
 	//################ BLOCO FINAL DE FORMA RECURSIVA ##########################
 	FILE *arq;
-	arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
+	arq = fopen("./CampoHarmonico.txt", "w");
 	if (arq == NULL)
 	{
 	   printf("Problemas na CRIACAO do arquivo\n");
