@@ -30,9 +30,15 @@ int main(){
 	ptr_harmoniaMenorRelativa = criaRelativoMenor(ptr_harmoniaInt);
 	
 	free(ptr_semitom);
+	
+	//################## BLOCO FINAL TRADICIONAL ##############################
+	
 	//printf("\n");
 	//campoHarmonico(ptr_harmoniaInt, ptr_harmoniaMenorRelativa); //Passar vetor semitom e printar o campo harmonico desejado, convertendo de int para char
 	
+	//##########################################################################
+	
+	//################ BLOCO FINAL DE FORMA RECURSIVA ##########################
 	FILE *arq;
 	arq = fopen("C:/Users/Leonardo/Documents/Projeto P.E/CampoHarmonico.txt", "w");
 	if (arq == NULL)
@@ -46,6 +52,6 @@ int main(){
 	printf("\n\n");
 	printf("Campo harmonico relativo menor do campo harmonico final: \n");
 	mostraRelativoMenorRec(ptr_harmoniaMenorRelativa, 0);
-	
+	//#########################################################################
 	return 0;
 }
